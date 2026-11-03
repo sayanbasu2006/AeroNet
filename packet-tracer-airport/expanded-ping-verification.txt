@@ -1,0 +1,128 @@
+Cisco Packet Tracer PC Command Line 1.0
+C:\>ipconfig
+
+FastEthernet0 Connection:(default port)
+
+   Connection-specific DNS Suffix..: 
+   Link-local IPv6 Address.........: FE80::204:9AFF:FE04:DC81
+   IPv6 Address....................: ::
+   IPv4 Address....................: 10.10.10.17
+   Subnet Mask.....................: 255.255.255.224
+   Default Gateway.................: ::
+                                     0.0.0.0
+
+Bluetooth Connection:
+
+   Connection-specific DNS Suffix..: 
+   Link-local IPv6 Address.........: ::
+   IPv6 Address....................: ::
+   IPv4 Address....................: 0.0.0.0
+   Subnet Mask.....................: 0.0.0.0
+   Default Gateway.................: ::
+                                     0.0.0.0
+
+C:\>ping 10.10.20.15
+
+Pinging 10.10.20.15 with 32 bytes of data:
+
+Request timed out.
+Request timed out.
+Request timed out.
+Request timed out.
+
+Ping statistics for 10.10.20.15:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+
+C:\>10.20.15
+Invalid Command.
+
+C:\>ipconfig
+
+FastEthernet0 Connection:(default port)
+
+   Connection-specific DNS Suffix..: 
+   Link-local IPv6 Address.........: FE80::204:9AFF:FE04:DC81
+   IPv6 Address....................: ::
+   IPv4 Address....................: 10.10.10.17
+   Subnet Mask.....................: 255.255.255.224
+   Default Gateway.................: ::
+                                     10.10.10.1
+
+Bluetooth Connection:
+
+   Connection-specific DNS Suffix..: 
+   Link-local IPv6 Address.........: ::
+   IPv6 Address....................: ::
+   IPv4 Address....................: 0.0.0.0
+   Subnet Mask.....................: 0.0.0.0
+   Default Gateway.................: ::
+                                     0.0.0.0
+
+C:\>ping 10.10.20.15
+
+Pinging 10.10.20.15 with 32 bytes of data:
+
+Request timed out.
+Reply from 10.10.20.15: bytes=32 time<1ms TTL=127
+Reply from 10.10.20.15: bytes=32 time<1ms TTL=127
+Reply from 10.10.20.15: bytes=32 time<1ms TTL=127
+
+Ping statistics for 10.10.20.15:
+    Packets: Sent = 4, Received = 3, Lost = 1 (25% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+
+C:\>ping 10.20.10.16
+
+Pinging 10.20.10.16 with 32 bytes of data:
+
+Request timed out.
+Reply from 10.20.10.16: bytes=32 time=104ms TTL=126
+Reply from 10.20.10.16: bytes=32 time=82ms TTL=126
+Reply from 10.20.10.16: bytes=32 time=99ms TTL=126
+
+Ping statistics for 10.20.10.16:
+    Packets: Sent = 4, Received = 3, Lost = 1 (25% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 82ms, Maximum = 104ms, Average = 95ms
+
+C:\>ping 203.0.113.10
+
+Pinging 203.0.113.10 with 32 bytes of data:
+
+Request timed out.
+Reply from 203.0.113.10: bytes=32 time=126ms TTL=125
+Reply from 203.0.113.10: bytes=32 time=175ms TTL=125
+Reply from 203.0.113.10: bytes=32 time=83ms TTL=125
+
+Ping statistics for 203.0.113.10:
+    Packets: Sent = 4, Received = 3, Lost = 1 (25% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 83ms, Maximum = 175ms, Average = 128ms
+
+C:\>ping 203.0.113.10
+
+Pinging 203.0.113.10 with 32 bytes of data:
+
+Reply from 203.0.113.10: bytes=32 time=85ms TTL=125
+Reply from 203.0.113.10: bytes=32 time=105ms TTL=125
+Reply from 203.0.113.10: bytes=32 time=195ms TTL=125
+Reply from 203.0.113.10: bytes=32 time=123ms TTL=125
+
+Ping statistics for 203.0.113.10:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 85ms, Maximum = 195ms, Average = 127ms
+
+C:\>tracert 203.0.113.10
+
+Tracing route to 203.0.113.10 over a maximum of 30 hops: 
+
+  1   0 ms      0 ms      0 ms      10.10.10.1
+  2   59 ms     1 ms      25 ms     172.16.0.2
+  3   147 ms    46 ms     3 ms      172.16.0.6
+  4   106 ms    98 ms     45 ms     203.0.113.10
+
+Trace complete.
+
+C:\>

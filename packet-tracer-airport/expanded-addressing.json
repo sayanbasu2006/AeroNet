@@ -1,0 +1,200 @@
+[
+  {
+    "name": "Check-in-Desk-01",
+    "x": 100,
+    "y": 760,
+    "ip": "10.10.10.10",
+    "gateway": "10.10.10.1",
+    "switch": "Check-in-LAN",
+    "port": "FastEthernet0/2"
+  },
+  {
+    "name": "Check-in-Desk-02",
+    "x": 230,
+    "y": 760,
+    "ip": "10.10.10.11",
+    "gateway": "10.10.10.1",
+    "switch": "Check-in-LAN",
+    "port": "FastEthernet0/3"
+  },
+  {
+    "name": "Check-in-Desk-03",
+    "x": 360,
+    "y": 760,
+    "ip": "10.10.10.12",
+    "gateway": "10.10.10.1",
+    "switch": "Check-in-LAN",
+    "port": "FastEthernet0/4"
+  },
+  {
+    "name": "Check-in-Desk-04",
+    "x": 490,
+    "y": 760,
+    "ip": "10.10.10.13",
+    "gateway": "10.10.10.1",
+    "switch": "Check-in-LAN",
+    "port": "FastEthernet0/5"
+  },
+  {
+    "name": "Check-in-Desk-05",
+    "x": 120,
+    "y": 880,
+    "ip": "10.10.10.14",
+    "gateway": "10.10.10.1",
+    "switch": "Check-in-LAN",
+    "port": "FastEthernet0/6"
+  },
+  {
+    "name": "Check-in-Desk-06",
+    "x": 250,
+    "y": 880,
+    "ip": "10.10.10.15",
+    "gateway": "10.10.10.1",
+    "switch": "Check-in-LAN",
+    "port": "FastEthernet0/7"
+  },
+  {
+    "name": "Check-in-Desk-07",
+    "x": 380,
+    "y": 880,
+    "ip": "10.10.10.16",
+    "gateway": "10.10.10.1",
+    "switch": "Check-in-LAN",
+    "port": "FastEthernet0/8"
+  },
+  {
+    "name": "Check-in-Desk-08",
+    "x": 510,
+    "y": 880,
+    "ip": "10.10.10.17",
+    "gateway": "10.10.10.1",
+    "switch": "Check-in-LAN",
+    "port": "FastEthernet0/9"
+  },
+  {
+    "name": "Security-PC-01",
+    "x": 650,
+    "y": 760,
+    "ip": "10.10.20.10",
+    "gateway": "10.10.20.1",
+    "switch": "Security-LAN",
+    "port": "FastEthernet0/2"
+  },
+  {
+    "name": "Security-PC-02",
+    "x": 790,
+    "y": 760,
+    "ip": "10.10.20.11",
+    "gateway": "10.10.20.1",
+    "switch": "Security-LAN",
+    "port": "FastEthernet0/3"
+  },
+  {
+    "name": "Security-PC-03",
+    "x": 930,
+    "y": 760,
+    "ip": "10.10.20.12",
+    "gateway": "10.10.20.1",
+    "switch": "Security-LAN",
+    "port": "FastEthernet0/4"
+  },
+  {
+    "name": "Security-PC-04",
+    "x": 680,
+    "y": 880,
+    "ip": "10.10.20.13",
+    "gateway": "10.10.20.1",
+    "switch": "Security-LAN",
+    "port": "FastEthernet0/5"
+  },
+  {
+    "name": "Security-PC-05",
+    "x": 820,
+    "y": 880,
+    "ip": "10.10.20.14",
+    "gateway": "10.10.20.1",
+    "switch": "Security-LAN",
+    "port": "FastEthernet0/6"
+  },
+  {
+    "name": "Security-PC-06",
+    "x": 960,
+    "y": 880,
+    "ip": "10.10.20.15",
+    "gateway": "10.10.20.1",
+    "switch": "Security-LAN",
+    "port": "FastEthernet0/7"
+  },
+  {
+    "name": "Control-Tower-PC-01",
+    "x": 1230,
+    "y": 830,
+    "ip": "10.20.10.11",
+    "gateway": "10.20.10.1",
+    "switch": "Baggage-LAN",
+    "port": "FastEthernet0/3"
+  },
+  {
+    "name": "Control-Tower-PC-02",
+    "x": 1360,
+    "y": 830,
+    "ip": "10.20.10.12",
+    "gateway": "10.20.10.1",
+    "switch": "Baggage-LAN",
+    "port": "FastEthernet0/4"
+  },
+  {
+    "name": "Control-Tower-PC-03",
+    "x": 1480,
+    "y": 830,
+    "ip": "10.20.10.13",
+    "gateway": "10.20.10.1",
+    "switch": "Baggage-LAN",
+    "port": "FastEthernet0/5"
+  },
+  {
+    "name": "Control-Tower-PC-04",
+    "x": 1600,
+    "y": 830,
+    "ip": "10.20.10.14",
+    "gateway": "10.20.10.1",
+    "switch": "Baggage-LAN",
+    "port": "FastEthernet0/6"
+  },
+  {
+    "name": "Control-Tower-PC-05",
+    "x": 1720,
+    "y": 830,
+    "ip": "10.20.10.15",
+    "gateway": "10.20.10.1",
+    "switch": "Baggage-LAN",
+    "port": "FastEthernet0/7"
+  },
+  {
+    "name": "Control-Tower-PC-06",
+    "x": 1840,
+    "y": 830,
+    "ip": "10.20.10.16",
+    "gateway": "10.20.10.1",
+    "switch": "Baggage-LAN",
+    "port": "FastEthernet0/8"
+  },
+  {
+    "name": "Baggage-Server",
+    "x": 1110,
+    "y": 830,
+    "ip": "10.20.10.10",
+    "gateway": "10.20.10.1",
+    "switch": "Baggage-LAN",
+    "port": "FastEthernet0/2"
+  },
+  {
+    "name": "Flight-API-Server",
+    "x": 1400,
+    "y": 250,
+    "ip": "203.0.113.10",
+    "gateway": "203.0.113.1",
+    "switch": "ISP-Router",
+    "port": "FastEthernet0/0"
+  }
+]

@@ -1,0 +1,192 @@
+Window: "Workspace List", App: Cisco Packet Tracer.
+0 standard window Workspace List, Secondary Actions: Raise
+	1 text Value: Devices, ID: PtApp.WorkspaceList.frame_2.deviceFrame.label
+	2 button Add Device, ID: PtApp.WorkspaceList.frame_2.deviceFrame.addDevButton, Secondary Actions: Raise
+	3 button Remove Device, ID: PtApp.WorkspaceList.frame_2.deviceFrame.removeDevButton, Secondary Actions: Raise
+	4 button Show Parent Cluster, ID: PtApp.WorkspaceList.frame_2.deviceFrame.moveToParentButton, Secondary Actions: Raise
+	5 table Device slots. Use left or right arrow keys to navigate between device slots. Hit spacebar to open device slot combobox., Description: Use left or right arrow keys to navigate between device slots. Hit spacebar to open device slot combobox.
+	6 text Description: Use left or right arrow keys to navigate between device slots., ID: PtApp.WorkspaceList.frame_2.deviceFrame.label_3, Secondary Actions: Raise, Value: * Use left or right arrow keys to navigate between device slots.  Hit spacebar to open device slot combobox. Links
+	7 table Links
+		8 row Links
+			9 cell Serial (DCE on Terminal-Router), ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			10 cell Terminal-Router:Serial2/0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			11 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			12 cell Control-Tower-Router:Serial2/0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			13 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		14 row Links
+			15 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			16 cell Terminal-Router:FastEthernet0/0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			17 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			18 cell Check-in-LAN:FastEthernet0/1, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			19 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		20 row Links
+			21 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			22 cell Terminal-Router:FastEthernet1/0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			23 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			24 cell Security-LAN:FastEthernet0/1, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			25 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		26 row Links
+			27 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			28 cell Control-Tower-Router:FastEthernet0/0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			29 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			30 cell Baggage-LAN:FastEthernet0/1, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			31 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		32 row Links
+			33 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			34 cell Check-in-Desk-01:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			35 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			36 cell Check-in-LAN:FastEthernet0/2, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			37 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		38 row Links
+			39 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			40 cell Check-in-Desk-02:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			41 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			42 cell Check-in-LAN:FastEthernet0/3, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			43 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		44 row Links
+			45 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			46 cell Security-PC-01:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			47 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			48 cell Security-LAN:FastEthernet0/2, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			49 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		50 row Links
+			51 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			52 cell Baggage-Server:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			53 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			54 cell Baggage-LAN:FastEthernet0/2, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			55 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		56 row Links
+			57 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			58 cell Control-Tower-PC-01:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			59 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			60 cell Baggage-LAN:FastEthernet0/3, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			61 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		62 row Links
+			63 cell Copper Cross-Over, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			64 cell ISP-Router:FastEthernet0/0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			65 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			66 cell Flight-API-Server:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			67 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		68 row Links
+			69 cell Serial (DCE on Control-Tower-Router), ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			70 cell Control-Tower-Router:Serial3/0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			71 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			72 cell ISP-Router:Serial2/0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			73 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		74 row Links
+			75 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			76 cell Check-in-Desk-03:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			77 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			78 cell Check-in-LAN:FastEthernet0/4, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			79 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		80 row Links
+			81 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			82 cell Check-in-Desk-04:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			83 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			84 cell Check-in-LAN:FastEthernet0/5, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			85 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		86 row Links
+			87 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			88 cell Check-in-Desk-05:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			89 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			90 cell Check-in-LAN:FastEthernet0/6, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			91 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		92 row Links
+			93 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			94 cell Check-in-Desk-06:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			95 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			96 cell Check-in-LAN:FastEthernet0/7, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			97 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		98 row Links
+			99 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			100 cell Check-in-Desk-07:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			101 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			102 cell Check-in-LAN:FastEthernet0/8, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			103 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		104 row Links
+			105 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			106 cell Check-in-Desk-08:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			107 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			108 cell Check-in-LAN:FastEthernet0/9, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			109 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		110 row Links
+			111 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			112 cell Security-PC-02:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			113 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			114 cell Security-LAN:FastEthernet0/3, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			115 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		116 row Links
+			117 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			118 cell Security-PC-03:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			119 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			120 cell Security-LAN:FastEthernet0/4, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			121 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		122 row Links
+			123 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			124 cell Security-PC-04:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			125 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			126 cell Security-LAN:FastEthernet0/5, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			127 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		128 row Links
+			129 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			130 cell Security-PC-05:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			131 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			132 cell Security-LAN:FastEthernet0/6, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			133 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		134 row Links
+			135 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			136 cell Security-PC-06:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			137 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			138 cell Security-LAN:FastEthernet0/7, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			139 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		140 row Links
+			141 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			142 cell Control-Tower-PC-02:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			143 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			144 cell Baggage-LAN:FastEthernet0/4, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			145 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		146 row Links
+			147 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			148 cell Control-Tower-PC-03:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			149 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			150 cell Baggage-LAN:FastEthernet0/5, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			151 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		152 row Links
+			153 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			154 cell Control-Tower-PC-04:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			155 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			156 cell Baggage-LAN:FastEthernet0/6, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			157 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		158 row Links
+			159 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			160 cell Control-Tower-PC-05:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			161 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			162 cell Baggage-LAN:FastEthernet0/7, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			163 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		164 row Links
+			165 cell Copper Straight-Through, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			166 cell Control-Tower-PC-06:FastEthernet0, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			167 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			168 cell Baggage-LAN:FastEthernet0/8, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+			169 cell Green, ID: PtApp.WorkspaceList.frame_2.linkFrame.linkList
+		170 column Links
+		171 column Links
+		172 column Links
+		173 column Links
+		174 column Links
+	175 button Add Link, ID: PtApp.WorkspaceList.frame_2.linkFrame.addLinkButton, Secondary Actions: Raise
+	176 button Remove Link, ID: PtApp.WorkspaceList.frame_2.linkFrame.removeLinkButton, Secondary Actions: Raise
+	177 close button
+	178 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	179 minimize button
+	180 text Workspace List
+181 menu bar
+	182 Cisco Packet Tracer
+	183 File
+	184 Edit
+	185 Options
+	186 View
+	187 Tools
+	188 Extensions
+	189 Window
+	190 Help

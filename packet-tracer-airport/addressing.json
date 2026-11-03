@@ -1,0 +1,108 @@
+{
+  "routers": {
+    "Terminal-Router": {
+      "host": "TERM-R1",
+      "rid": "1.1.1.1",
+      "ports": [
+        [
+          "FastEthernet0/0",
+          "10.10.10.1",
+          "255.255.255.224",
+          "Check-in LAN"
+        ],
+        [
+          "FastEthernet1/0",
+          "10.10.20.1",
+          "255.255.255.224",
+          "Security LAN"
+        ],
+        [
+          "Serial2/0",
+          "172.16.0.1",
+          "255.255.255.252",
+          "WAN to Control Tower"
+        ]
+      ]
+    },
+    "Control-Tower-Router": {
+      "host": "TWR-R2",
+      "rid": "2.2.2.2",
+      "ports": [
+        [
+          "FastEthernet0/0",
+          "10.20.10.1",
+          "255.255.255.224",
+          "Baggage and Tower LAN"
+        ],
+        [
+          "Serial2/0",
+          "172.16.0.2",
+          "255.255.255.252",
+          "WAN to Terminal"
+        ],
+        [
+          "Serial3/0",
+          "172.16.0.5",
+          "255.255.255.252",
+          "WAN to ISP"
+        ]
+      ]
+    },
+    "ISP-Router": {
+      "host": "ISP-R3",
+      "rid": "3.3.3.3",
+      "ports": [
+        [
+          "FastEthernet0/0",
+          "203.0.113.1",
+          "255.255.255.224",
+          "Flight API external LAN"
+        ],
+        [
+          "Serial2/0",
+          "172.16.0.6",
+          "255.255.255.252",
+          "WAN to Tower"
+        ]
+      ]
+    }
+  },
+  "hosts": [
+    {
+      "name": "Check-in-Desk-01",
+      "ip": "10.10.10.10",
+      "mask": "255.255.255.224",
+      "gateway": "10.10.10.1"
+    },
+    {
+      "name": "Check-in-Desk-02",
+      "ip": "10.10.10.11",
+      "mask": "255.255.255.224",
+      "gateway": "10.10.10.1"
+    },
+    {
+      "name": "Security-Workstation",
+      "ip": "10.10.20.10",
+      "mask": "255.255.255.224",
+      "gateway": "10.10.20.1"
+    },
+    {
+      "name": "Baggage-Server",
+      "ip": "10.20.10.10",
+      "mask": "255.255.255.224",
+      "gateway": "10.20.10.1"
+    },
+    {
+      "name": "Control-Tower-PC",
+      "ip": "10.20.10.11",
+      "mask": "255.255.255.224",
+      "gateway": "10.20.10.1"
+    },
+    {
+      "name": "Flight-API-Server",
+      "ip": "203.0.113.10",
+      "mask": "255.255.255.224",
+      "gateway": "203.0.113.1"
+    }
+  ]
+}
