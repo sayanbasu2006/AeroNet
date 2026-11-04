@@ -1,0 +1,7 @@
+{
+  "name": "aeronet-airport-network-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Self-contained airport network simulator for Computer Networks experiments 1–12",
+  "scripts": { "test": "node --test tests/*.test.js", "check": "node --check dist/network.js && node --check dist/app.js && node --check dist/enterprise.js" }
+}
