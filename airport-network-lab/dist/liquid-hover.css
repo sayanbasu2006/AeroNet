@@ -1,0 +1,26 @@
+/* A transparent reflection layer preserves the jet-black material underneath. */
+.liquid-relative{position:relative}
+.liquid-hover{isolation:isolate;--liquid-x:50%;--liquid-y:50%;--liquid-rx:0deg;--liquid-ry:0deg;--liquid-light:255,255,255;--liquid-tint:130,186,211}
+.liquid-hover::before,.liquid-hover::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s ease;z-index:1}
+.liquid-hover::before{inset:-1px;padding:1px;background:radial-gradient(180px circle at var(--liquid-x) var(--liquid-y),rgba(var(--liquid-light),.8),rgba(var(--liquid-light),.18) 38%,transparent 75%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.liquid-hover::after{background:radial-gradient(210px circle at var(--liquid-x) var(--liquid-y),rgba(var(--liquid-light),.10),rgba(var(--liquid-tint),.035) 45%,transparent 75%);box-shadow:inset 0 1px 0 #ffffff12}
+.liquid-control::after{background:radial-gradient(95px circle at var(--liquid-x) var(--liquid-y),rgba(var(--liquid-light),.20),rgba(var(--liquid-light),.045) 45%,transparent 80%)}
+.liquid-tilt{transform:perspective(900px) rotateX(var(--liquid-rx)) rotateY(var(--liquid-ry));transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .25s,box-shadow .25s}
+.liquid-hover.liquid-active::before,.liquid-hover.liquid-active::after,.liquid-hover:focus-visible::before,.liquid-hover:focus-visible::after{opacity:1}
+.liquid-hover:focus-visible{--liquid-x:50%!important;--liquid-y:0%!important}
+[data-theme="light"] .liquid-hover::after{background:radial-gradient(170px circle at var(--liquid-x) var(--liquid-y),#fff9,#6ca4bd12 45%,transparent 78%)}
+[data-theme="light"] .liquid-hover::before{background:radial-gradient(180px circle at var(--liquid-x) var(--liquid-y),#7da9c1aa,transparent 75%)}
+@media(hover:hover) and (pointer:fine){
+ .device-node .node-frame,.device-node .node-shine,.device-node .node-halo,.device-node .node-label-plate{transition:stroke .25s,opacity .25s,filter .25s}
+ .device-node.liquid-active .node-frame,[data-theme="dark"] .device-node.liquid-active .node-frame{stroke:#fff;stroke-width:2;filter:drop-shadow(0 0 7px #d4f1ff48)}
+ .device-node.liquid-active .node-shine{stroke:#fff;opacity:1;stroke-width:2}
+ .device-node.liquid-active .node-halo{opacity:.2;fill:#e5f7ff}
+ .device-node.liquid-active .node-label-plate{stroke:#dcefff;stroke-width:1.2}
+ .liquid-control.liquid-active{box-shadow:inset 0 1px 0 #ffffff38,0 3px 16px #00000015}
+}
+@media(prefers-reduced-motion:reduce){
+ .liquid-tilt{transform:none!important}
+ .liquid-hover::before,.liquid-hover::after,.device-node .node-frame,.device-node .node-shine,.device-node .node-halo,.device-node .node-label-plate{transition:none}
+}
+@media(prefers-reduced-transparency:reduce){.liquid-hover::after{display:none}.liquid-hover::before{background:var(--ui-stroke)}}
+@media(forced-colors:active){.liquid-hover::before,.liquid-hover::after{display:none}.liquid-tilt{transform:none}.device-node.liquid-active .node-frame{filter:none;stroke:Highlight}}
