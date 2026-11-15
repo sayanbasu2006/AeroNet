@@ -2,9 +2,9 @@
 (()=>{
   const finePointer=matchMedia('(any-hover: hover) and (any-pointer: fine)');
   const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
-  const controls='.btn,.small-btn,.icon-btn,.nav-item,.exp-item,.theme-toggle,.tool,.context-config,.guide-link,.text-btn';
+  const controls='button:not(.nav-scrim),a.btn';
   const surfaces='.metrics>div,.scenario-card,.guide-card,.canvas-card,.inspector,.activity-card';
-  const movable='.metrics>div,.scenario-card,.guide-card';
+  const movable='.metrics>div,.guide-card';
   let active=new Set(),frame=0,pointer=null;
 
   function release(el){

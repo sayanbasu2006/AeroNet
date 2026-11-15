@@ -1,16 +1,19 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#000000">
   <title>AeroNet · Airport Network Lab</title>
   <meta name="description" content="An interactive airport network lab. Explore topology, Cisco-style commands, routing, NAT, and subnetting in your browser.">
-  <script src="theme.js?v=14"></script>
-  <link rel="stylesheet" href="styles.css?v=14">
-  <link rel="stylesheet" href="responsive.css?v=14">
-  <link rel="stylesheet" href="glass.css?v=14">
-  <link rel="stylesheet" href="workspace.css?v=14">
-  <link rel="stylesheet" href="liquid-hover.css?v=14">
+  <script src="theme.js?v=19"></script>
+  <link rel="stylesheet" href="styles.css?v=19">
+  <link rel="stylesheet" href="responsive.css?v=19">
+  <link rel="stylesheet" href="glass.css?v=19">
+  <link rel="stylesheet" href="workspace.css?v=19">
+  <link rel="stylesheet" href="light-theme.css?v=19">
+  <link rel="stylesheet" href="liquid-hover.css?v=20">
+  <link rel="stylesheet" href="typography.css?v=19">
+  <link rel="stylesheet" href="mobile.css?v=20">
 </head>
 <body>
 <div class="app-shell">
@@ -25,13 +28,13 @@
       <button class="nav-item" data-view="tools"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 12 5-7 4 14 4-10 2 3h3"/></svg></span> Network tools</button>
       <button class="nav-item" data-view="subnet"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 7h8M8 12h1m6 0h1m-8 5h1m6 0h1"/></svg></span> Subnet calculator</button>
     </nav>
-    <div class="section-label">LAB EXPERIMENTS <span>12 MODULES</span></div><p class="lab-caption">Your networking flight plan</p>
+    <div class="section-label">LAB EXPERIMENTS <span>12 MODULES</span></div><p class="lab-caption">Configuration and routing</p>
     <div id="experiment-list" class="experiment-list"></div>
-    <button id="guide-button" class="guide-link"><span class="guide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v15M3 4c4-1 6 0 9 1 3-1 5-2 9-1v15c-4-1-6 0-9 1-3-1-5-2-9-1Z"/></svg></span><span class="guide-copy">Lab field guide<small>A little help along the way</small></span><span>↗</span></button>
+    <button id="guide-button" class="guide-link"><span class="guide-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v15M3 4c4-1 6 0 9 1 3-1 5-2 9-1v15c-4-1-6 0-9 1-3-1-5-2-9-1Z"/></svg></span><span class="guide-copy">Lab field guide<small>Setup steps and commands</small></span><span>↗</span></button>
   </aside>
   <main>
     <header class="topbar"><button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-controls="lab-navigation" aria-expanded="false">☰</button><div class="breadcrumb">Workspace <span>/</span> <strong>Airport management</strong></div><div class="header-actions"><button class="btn configure-jump" id="configure-jump" aria-label="Go to device configuration">◎ <span>Configure</span></button><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span aria-hidden="true" class="theme-icon">☾</span><span class="theme-label">Dark mode</span></button><span class="local-badge"><span class="online-dot"></span> Browser simulation</span><button class="icon-btn" id="help-button" title="Open lab guide" aria-label="Open lab guide">?</button></div></header>
-    <section class="page-heading"><div><div class="eyebrow">COMPUTER NETWORKS · VIRTUAL LAB</div><h1>Airport network lab<span class="title-dot">.</span></h1><p>Build connections. Configure your airport. Follow every packet.</p></div><div class="heading-actions"><button class="btn" id="save-button">↓ <span>Save lab</span></button><button class="btn dark" id="scenario-button">▧ <span>Load scenario</span> <span class="chevron">⌄</span></button></div></section>
+    <section class="page-heading"><div><div class="eyebrow">COMPUTER NETWORKS · VIRTUAL LAB</div><h1>Airport network lab</h1><p>Configure devices, test connections, and inspect packet routes.</p></div><div class="heading-actions"><button class="btn" id="save-button">↓ <span>Save lab</span></button><button class="btn dark" id="scenario-button">▧ <span>Load scenario</span> <span class="chevron">⌄</span></button></div></section>
     <section class="metrics" aria-label="Network overview"><div><span class="metric-icon blue">⌘</span><span><strong id="device-count">28</strong><small>NETWORK DEVICES</small></span></div><div><span class="metric-icon teal">⌁</span><span><strong id="link-count">27</strong><small>PHYSICAL LINKS</small></span></div><div><span class="metric-icon purple">⇄</span><span><strong id="protocol-label">Connected</strong><small>ROUTING PROTOCOL</small></span></div><div><span class="metric-icon green">◉</span><span><strong id="health-label">Operational</strong><small>NETWORK STATUS</small></span></div><span class="metrics-note"><span class="live-dot"></span> Live configuration</span></section>
     <section class="lab-layout">
       <div class="workspace-column">
@@ -39,14 +42,15 @@
           <div class="canvas-topbar"><div class="canvas-title"><span class="online-dot"></span><strong>Airport topology</strong><span id="scenario-label" class="soft-tag">Topology overview</span></div><button id="reset-button" class="text-btn" title="Restore current scenario">↻ <span>Reset</span></button></div>
           <div class="topology-intro"><div><span class="glass-eyebrow">AIRPORT NETWORK</span><h2>Your network, in view<span>.</span></h2><p>Explore a connection. Follow its path.</p></div><span class="glass-live"><i></i> Live topology</span></div>
           <div class="canvas-tools"><div class="tool-group" role="group" aria-label="Topology tools"><button class="tool active" data-tool="select" title="Select and drag devices"><span>↖</span> Select</button><button class="tool" data-tool="cable" title="Connect two devices"><span>⌁</span> Cable</button><button class="tool" data-tool="delete" title="Delete a device or cable"><span>⌫</span> Delete</button></div><div class="canvas-tool-right"><button class="small-btn ping-launch" id="ping-launch">⌁ Ping / Trace</button><button class="small-btn" id="add-button">＋ Device</button><button class="icon-btn" id="fit-button" title="Fit topology" aria-label="Fit topology">⛶</button><button class="icon-btn" id="expand-workspace" title="Expand workspace" aria-label="Expand workspace" aria-pressed="false">↗</button></div></div>
-          <form class="device-finder" id="device-finder"><label for="device-search">Find a device by name or IP</label><input id="device-search" type="search" list="device-options" placeholder="Find a device or IP address…" autocomplete="off"><datalist id="device-options"></datalist><button class="btn" type="submit">Locate</button></form>
+          <div class="canvas-settings"><div id="ping-playback" class="ping-playback" aria-label="Packet playback settings"></div>
+          <form class="device-finder" id="device-finder"><label for="device-search">Find a device by name or IP</label><input id="device-search" type="search" list="device-options" placeholder="Find a device or IP address…" autocomplete="off"><datalist id="device-options"></datalist><button class="btn" type="submit">Locate</button></form></div>
           <div id="cable-options" class="cable-options" hidden><label>Cable type <select id="cable-type"><option value="straight">Copper straight-through</option><option value="cross">Copper cross-over</option><option value="serial">Serial DCE</option></select></label><span>Choose two devices on the canvas.</span><button class="text-btn" id="cancel-cable">Cancel</button></div>
           <div class="topology-wrap overview-fit"><svg id="topology" viewBox="0 0 1100 660" role="group" aria-label="Interactive airport network topology"></svg><div class="canvas-caption"><span class="live-dot"></span> <span id="canvas-hint">Click a device to configure · Drag to arrange</span></div><div class="zoom-tools"><button id="zoom-out" aria-label="Zoom out">−</button><span id="zoom-label">100%</span><button id="zoom-in" aria-label="Zoom in">＋</button></div></div>
           <div class="topology-context" id="topology-context" aria-live="polite"></div>
           <div id="ping-summary" class="ping-summary" hidden aria-live="polite"></div>
           <footer class="canvas-legend"><span><i class="line straight"></i> Straight-through</span><span><i class="line cross"></i> Cross-over</span><span><i class="line serial"></i> Serial DCE</span><span class="legend-up"><i></i> Link up</span></footer>
         </section>
-        <section class="activity-card"><div class="activity-heading"><div class="activity-tabs" role="tablist"><button class="active" data-logtab="events" role="tab">Event log <span id="event-count">1</span></button><button data-logtab="packets" role="tab">Packet inspector</button></div><button id="clear-log" class="text-btn">Clear log</button></div><div id="activity-content" class="activity-content" aria-live="polite"></div><div class="activity-footer"><span>◉ <span id="last-status">Simulation ready. Your airport is connected.</span></span><span id="clock">LOCAL</span></div></section>
+        <section class="activity-card"><div class="activity-heading"><div class="activity-tabs" role="tablist"><button class="active" data-logtab="events" role="tab">Event log <span id="event-count">1</span></button><button data-logtab="packets" role="tab">Packet inspector</button></div><button id="clear-log" class="text-btn">Clear log</button></div><div id="activity-content" class="activity-content" aria-live="polite"></div><div class="activity-footer"><span>◉ <span id="last-status">Simulation ready. Select a device to begin.</span></span><span id="clock">LOCAL</span></div></section>
       </div>
       <aside class="inspector" id="inspector" hidden aria-label="Device configuration"></aside>
     </section>
@@ -54,6 +58,6 @@
 </div>
 <dialog id="modal" aria-labelledby="modal-title"><div class="modal-heading"><div><div class="eyebrow" id="modal-eyebrow">AERONET WORKSPACE</div><h2 id="modal-title"></h2></div><button class="icon-btn" id="modal-close" aria-label="Close dialog">×</button></div><div id="modal-body"></div></dialog>
 <div id="toast" role="status"></div>
-<script src="network.js?v=14"></script><script src="enterprise.js?v=14"></script><script src="app.js?v=14"></script><script src="ui.js?v=14"></script><script src="glass.js?v=14"></script><script src="liquid-hover.js?v=14"></script>
+<script src="network.js?v=19"></script><script src="enterprise.js?v=19"></script><script src="app.js?v=19"></script><script src="ui.js?v=19"></script><script src="glass.js?v=19"></script><script src="liquid-hover.js?v=19"></script>
 </body>
 </html>

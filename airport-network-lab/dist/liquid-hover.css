@@ -1,15 +1,15 @@
-/* A transparent reflection layer preserves the jet-black material underneath. */
+/* Reflections stay behind content; scale does not change layout or hit targets. */
 .liquid-relative{position:relative}
 .liquid-hover{isolation:isolate;--liquid-x:50%;--liquid-y:50%;--liquid-rx:0deg;--liquid-ry:0deg;--liquid-light:255,255,255;--liquid-tint:130,186,211}
-.liquid-hover::before,.liquid-hover::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s ease;z-index:1}
+.liquid-hover::before,.liquid-hover::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .35s ease;z-index:-1}
 .liquid-hover::before{inset:-1px;padding:1px;background:radial-gradient(180px circle at var(--liquid-x) var(--liquid-y),rgba(var(--liquid-light),.8),rgba(var(--liquid-light),.18) 38%,transparent 75%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
 .liquid-hover::after{background:radial-gradient(210px circle at var(--liquid-x) var(--liquid-y),rgba(var(--liquid-light),.10),rgba(var(--liquid-tint),.035) 45%,transparent 75%);box-shadow:inset 0 1px 0 #ffffff12}
 .liquid-control::after{background:radial-gradient(95px circle at var(--liquid-x) var(--liquid-y),rgba(var(--liquid-light),.20),rgba(var(--liquid-light),.045) 45%,transparent 80%)}
 .liquid-tilt{transform:perspective(900px) rotateX(var(--liquid-rx)) rotateY(var(--liquid-ry));transition:transform .3s cubic-bezier(.2,.7,.2,1),border-color .25s,box-shadow .25s}
 .liquid-hover.liquid-active::before,.liquid-hover.liquid-active::after,.liquid-hover:focus-visible::before,.liquid-hover:focus-visible::after{opacity:1}
 .liquid-hover:focus-visible{--liquid-x:50%!important;--liquid-y:0%!important}
-[data-theme="light"] .liquid-hover::after{background:radial-gradient(170px circle at var(--liquid-x) var(--liquid-y),#fff9,#6ca4bd12 45%,transparent 78%)}
-[data-theme="light"] .liquid-hover::before{background:radial-gradient(180px circle at var(--liquid-x) var(--liquid-y),#7da9c1aa,transparent 75%)}
+[data-theme="light"] .liquid-hover::after{background:radial-gradient(170px circle at var(--liquid-x) var(--liquid-y),#ffffff30,#4077cb09 45%,transparent 78%)}
+[data-theme="light"] .liquid-hover::before{background:radial-gradient(180px circle at var(--liquid-x) var(--liquid-y),#7197ca80,transparent 75%)}
 @media(hover:hover) and (pointer:fine){
  .device-node .node-frame,.device-node .node-shine,.device-node .node-halo,.device-node .node-label-plate{transition:stroke .25s,opacity .25s,filter .25s}
  .device-node.liquid-active .node-frame,[data-theme="dark"] .device-node.liquid-active .node-frame{stroke:#fff;stroke-width:2;filter:drop-shadow(0 0 7px #d4f1ff48)}
@@ -24,3 +24,31 @@
 }
 @media(prefers-reduced-transparency:reduce){.liquid-hover::after{display:none}.liquid-hover::before{background:var(--ui-stroke)}}
 @media(forced-colors:active){.liquid-hover::before,.liquid-hover::after{display:none}.liquid-tilt{transform:none}.device-node.liquid-active .node-frame{filter:none;stroke:Highlight}}
+
+/* Every enabled HTML button gets the same quiet spring, including dialog actions. */
+button:not(.nav-scrim),a.btn{
+ transform-origin:center;scale:1;translate:0 0;
+ transition:scale .24s cubic-bezier(.2,.75,.25,1.2),translate .24s cubic-bezier(.2,.75,.25,1.2),background .2s,border-color .2s,box-shadow .24s;
+}
+@media(hover:hover) and (pointer:fine){
+ button:not(.nav-scrim):not(:disabled):not([aria-disabled="true"]):hover,a.btn:hover{scale:1.035;translate:0 -1px}
+ button:is(.nav-item,.exp-item,.guide-link,.full):not(:disabled):hover{scale:1.018}
+ #modal button.scenario-card:hover{scale:1.012;translate:0 -2px}
+ button:not(.nav-scrim):not(:disabled):not([aria-disabled="true"]):active,a.btn:active{scale:.98;translate:0 0;transition-duration:.1s}
+ [data-theme="light"] .liquid-control.liquid-active{box-shadow:inset 0 1px #fff9,0 5px 16px #24355218}
+ [data-theme="light"] .liquid-control:is(.primary,.dark,.ping-launch)::after{background:radial-gradient(110px circle at var(--liquid-x) var(--liquid-y),#ffffff25,transparent 75%)}
+}
+@media(prefers-reduced-motion:reduce){button:not(.nav-scrim),a.btn{scale:1!important;translate:0 0!important;transition:none!important}}
+@media(forced-colors:active){button:not(.nav-scrim),a.btn{scale:1!important;translate:0 0!important}}
+
+/* Summary cards share the button lift while retaining their pointer reflection. */
+.metrics>div{
+ position:relative;transform-origin:center;scale:1;translate:0 0;
+ transition:scale .24s cubic-bezier(.2,.75,.25,1.2),translate .24s cubic-bezier(.2,.75,.25,1.2),transform .3s cubic-bezier(.2,.7,.2,1),border-color .25s,box-shadow .25s;
+}
+@media(hover:hover) and (pointer:fine){
+ .metrics>div:hover{scale:1.025;translate:0 -3px;z-index:2;box-shadow:inset 0 1px #ffffff20,0 10px 24px #0003}
+ [data-theme="light"] .metrics>div:hover{box-shadow:inset 0 1px #fff,0 10px 24px #24355220}
+}
+@media(prefers-reduced-motion:reduce){.metrics>div{scale:1!important;translate:0 0!important;transition:none!important}}
+@media(forced-colors:active){.metrics>div{scale:1!important;translate:0 0!important}}

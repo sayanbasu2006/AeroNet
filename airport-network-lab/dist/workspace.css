@@ -150,3 +150,38 @@
 
 button:disabled{cursor:default}
 [data-theme="dark"] .ping-stats strong{color:#fff}
+
+/* A single scroll region keeps scenario navigation and the close button in reach. */
+#modal[open]{display:flex;flex-direction:column;overflow:hidden;max-height:calc(100dvh - 40px)}
+#modal .modal-heading{position:relative;flex-shrink:0}
+#modal #modal-body{min-height:0;max-height:none;overflow-y:auto;overscroll-behavior:contain}
+#modal.scenario-modal{width:900px}
+#modal.scenario-modal #modal-body{padding-top:0;scrollbar-gutter:stable}
+.scenario-toolbar{position:sticky;top:0;z-index:4;background:var(--ui-surface);padding:18px 0 12px;border-bottom:1px solid var(--ui-stroke);margin-bottom:16px}
+.scenario-toolbar .modal-intro{margin:0 0 14px;line-height:1.6}
+.scenario-toolbar .field{margin-bottom:12px}
+.scenario-list-meta{display:flex;justify-content:space-between;gap:12px;font-size:11px;color:var(--ui-secondary)}
+#modal .scenario-grid{align-items:stretch;gap:12px}
+#modal .scenario-card{background:var(--ui-soft);color:var(--ui-text);border-color:var(--ui-stroke);padding:18px;gap:10px;transform:none;box-shadow:none}
+#modal .scenario-card:hover{border-color:var(--ui-secondary)}
+#modal .scenario-card.current{border-color:var(--ui-text)}
+#modal .scenario-card strong{font-family:inherit;font-size:15px;color:var(--ui-text)}
+#modal .scenario-card small{font-size:12px;line-height:1.6;color:var(--ui-secondary)}
+#modal .scenario-card .scenario-icon{font-size:22px;background:var(--ui-surface);color:var(--ui-text)}
+#modal .scenario-card .scenario-open{color:var(--ui-text);padding-top:6px}
+.ping-playback{padding:0 16px 12px}
+.ping-speed-control{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:12px 14px;border:1px solid var(--ui-stroke);border-radius:12px;background:var(--ui-soft);color:var(--ui-text);margin-bottom:16px}
+.ping-playback .ping-speed-control{margin:0}
+.ping-speed-control label{font-size:12px;font-weight:650;margin-right:6px}
+.ping-speed-control input[type=range]{flex:1;min-width:100px;max-width:230px;accent-color:var(--ui-text);cursor:pointer;min-height:26px;padding:0}
+.ping-speed-control output{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;min-width:42px}
+.ping-speed-control .speed-end,.ping-speed-control small{font-size:11px;color:var(--ui-secondary)}
+.ping-speed-control small{margin-left:auto}
+@media(max-width:600px){
+ #modal[open]{max-height:calc(100dvh - 20px)}
+ #modal.scenario-modal .scenario-grid{grid-template-columns:minmax(0,1fr)}
+ .scenario-toolbar{padding-top:12px}
+ .ping-speed-control{gap:8px}
+ .ping-speed-control small{flex-basis:100%;margin:0}
+ .ping-speed-control input[type=range]{max-width:none}
+}

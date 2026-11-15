@@ -7,7 +7,9 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const path = require('node:path');
 
-function workspace() {
+function workspace(savedSpeed = null) {
+  let now = 0;
+  const frames = [], storage = new Map(savedSpeed === null ? [] : [['aeronet-ping-speed',savedSpeed]]);
   const nodes = new Map();
   const collections = new Map();
   function element(key = '') {
@@ -43,12 +45,12 @@ function workspace() {
   }
   function get(key){if(!nodes.has(key))nodes.set(key,element(key));return nodes.get(key);}
   const document={querySelector:get,querySelectorAll:s=>collections.get(s)||[],getElementById:id=>get('#'+id),createElement:()=>element(),createElementNS:()=>element(),addEventListener(){},body:element(),documentElement:element()};
-  const context={document,console,CSS:{escape:x=>x},setTimeout:()=>0,clearTimeout(){},matchMedia:()=>({matches:false,addEventListener(){}}),performance:{now:()=>0},requestAnimationFrame:()=>{},localStorage:{getItem:()=>null,setItem(){}},FormData,Date};
+  const context={document,console,CSS:{escape:x=>x},setTimeout:()=>0,clearTimeout(){},matchMedia:()=>({matches:false,addEventListener(){}}),performance:{now:()=>now},requestAnimationFrame:fn=>frames.push(fn),localStorage:{getItem:key=>storage.get(key)??null,setItem:(key,value)=>storage.set(key,value)},FormData,Date};
   context.window=context;
   vm.createContext(context);
   get('.topology-wrap').classList.add('overview-fit');
   for(const name of ['network','enterprise','app','ui','glass'])vm.runInContext(fs.readFileSync(path.join(__dirname,'../dist/'+name+'.js'),'utf8'),context,{filename:name+'.js'});
-  return {run:code=>vm.runInContext(code,context),get,collections};
+  return {run:code=>vm.runInContext(code,context),get,collections,storage,async frame(time){now=time;frames.splice(0).forEach(fn=>fn(time));await Promise.resolve();}};
 }
 
 test('landing shows the complete basic topology without selecting EIGRP or a device',()=>{
@@ -137,4 +139,73 @@ test('device configuration opens on selection and closing it restores an undimme
   assert.equal(w.run('selected'),null);
   assert.equal(w.get('#focus-network').getAttribute('aria-pressed'),'false');
   assert.equal(w.collections.get('[data-device]').some(n=>n.classList.contains('network-dimmed')),false);
+});
+
+
+test('scenario search filters cards, handles no results, and clears on reopening',()=>{
+  const w=workspace();w.get('#scenario-button').click();
+  w.get('#scenario-search').value='NAT';w.get('#scenario-search').oninput();
+  assert.deepEqual(w.collections.get('[data-scenario]').filter(c=>!c.hidden).map(c=>c.dataset.scenario),['nat-static','nat-pool','nat']);
+  assert.equal(w.get('#scenario-count').textContent,'3 of 15 scenarios');
+  w.get('#scenario-search').value='no-such-protocol';w.get('#scenario-search').oninput();
+  assert.equal(w.get('#scenario-empty').hidden,false);
+  w.get('#modal-body').scrollTop=500;
+  w.get('#scenario-button').click();
+  assert.equal(w.get('#modal-body').scrollTop,0);
+  assert.equal(w.collections.get('[data-scenario]').filter(c=>!c.hidden).length,15);
+  w.get('#ping-launch').click();
+  assert.equal(w.get('#modal').classList.contains('scenario-modal'),false);
+});
+
+test('every scenario card loads its matching network and label',()=>{
+  const w=workspace();
+  for(const id of w.run('scenarios.map(s=>s.id)')){
+    w.get('#scenario-button').click();
+    w.collections.get('[data-scenario]').find(c=>c.dataset.scenario===id).click();
+    assert.equal(w.run('state.scenario'),id);
+    assert.equal(w.get('#scenario-label').textContent,w.run('scenarios.find(s=>s.id===state.scenario).name'));
+    assert.equal(w.get('#modal').open,false);
+    assert.equal(w.get('#zoom-label').textContent,'Fit');
+  }
+});
+
+test('ping speed is remembered, bounded, and retained across scenarios',()=>{
+  const w=workspace('0.25');
+  assert.equal(w.run('pingSpeed'),0.25);
+  w.run('setPingSpeed(1.5)');
+  assert.equal(w.storage.get('aeronet-ping-speed'),'1.5');
+  w.run("loadScenario('ospf')");
+  assert.equal(w.run('pingSpeed'),1.5);
+  w.get('#ping-launch').click();
+  assert.match(w.get('#modal-body').innerHTML,/id="tool-ping-speed"[^>]+value="1.5"/);
+  w.run('setPingSpeed(100)');assert.equal(w.run('pingSpeed'),2);
+  w.run('setPingSpeed(-1)');assert.equal(w.run('pingSpeed'),0.25);
+  w.run('setPingSpeed(NaN)');assert.equal(w.run('pingSpeed'),0.25);
+  assert.equal(workspace('invalid').run('pingSpeed'),0.5);
+});
+
+test('live speed changes adjust an in-flight hop without restarting it',async()=>{
+  const w=workspace();w.run("loadScenario('p2p')");
+  const points=w.run("state.devices.filter(d=>d.type==='pc').map(d=>({id:d.id,x:d.x,y:d.y}))");
+  const animation=w.run(`animatePacket(${JSON.stringify(points.map(p=>p.id))})`);
+  const dot=w.get('#topology-scene').children.at(-1);
+  await w.frame(500);
+  assert.equal(Number(dot.getAttribute('cx')),points[0].x+(points[1].x-points[0].x)*0.25);
+  w.run('setPingSpeed(2)');
+  await w.frame(750);
+  assert.equal(Number(dot.getAttribute('cx')),points[0].x+(points[1].x-points[0].x)*0.75);
+  await w.frame(875);await animation;
+  assert.equal(Number(dot.getAttribute('cx')),points[1].x);
+  assert.equal(dot.isConnected,false);
+});
+
+test('loading another scenario cancels an in-flight packet',async()=>{
+  const w=workspace();w.run("loadScenario('p2p')");
+  const animation=w.run("animatePacket(state.devices.filter(d=>d.type==='pc').map(d=>d.id))");
+  const dot=w.get('#topology-scene').children.at(-1);
+  await w.frame(500);
+  w.run("loadScenario('enterprise')");
+  await w.frame(600);await animation;
+  assert.equal(dot.isConnected,false);
+  assert.equal(w.run('lastPacket'),null);
 });
