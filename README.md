@@ -3,8 +3,6 @@
 > **A browser-based interactive computer networks simulator built around an airport theme.**  
 > Covers all 8 experiments of the **SRM 21CSC302J Computer Networks** lab manual — without installing anything.
 
-🌐 **Live Demo:** [aeronet-airport-lab-sb-1029.sayanbasu2006.chatgpt.site](https://aeronet-airport-lab-sb-1029.sayanbasu2006.chatgpt.site/)
-
 ---
 
 ## 📌 What Is This Project?
